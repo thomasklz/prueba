@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TipoController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/tipo',[TipoController::class, 'index']);
+Route::post('/tipo',[TipoController::class, 'store']);
+Route::get('/producto',[ProductoController::class, 'index']);
+Route::post('/producto',[ProductoController::class, 'store']);
+Route::get('/venta/{id}',[ProductoController::class, 'showProductoVenta']);
+Route::post('/venta/{id}',[ProductoController::class, 'venta']);
